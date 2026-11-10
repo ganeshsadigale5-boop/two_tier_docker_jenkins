@@ -13,9 +13,16 @@ pipeline {
                 echo 'Source code checked out from GitHub'
                 checkout scm
             }
-        }
-
-        stage('Build Docker Images') {
+        
+	}
+         stage('Prepare Environment') {
+    steps {
+        sh '''
+            cp /opt/two-tier-app/.env .env
+            chmod 600 .env
+        '''
+    }
+}	 stage('Build Docker Images') {
             steps {
                 sh 'docker compose build'
             }
