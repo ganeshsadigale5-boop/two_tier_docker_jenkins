@@ -1,0 +1,27 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Database backups
+*.sql.gz
+*.tar.gz
+*.dump
+
+# Credentials and keys
+*.pem
+*.ppk
+*.key
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
