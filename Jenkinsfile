@@ -1,4 +1,3 @@
-
 pipeline {
     agent any
 
@@ -10,19 +9,21 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                echo 'Source code checked out from GitHub'
                 checkout scm
+                echo 'Source code checked out from GitHub'
             }
-        
-	}
-         stage('Prepare Environment') {
-    steps {
-        sh '''
-            cp /opt/two-tier-app/.env .env
-            chmod 600 .env
-        '''
-    }
-}	 stage('Build Docker Images') {
+        }
+
+        stage('Prepare Environment') {
+            steps {
+                sh '''
+                    cp /opt/two-tier-app/.env .env
+                    chmod 600 .env
+                '''
+            }
+        }
+
+        stage('Build Docker Images') {
             steps {
                 sh 'docker compose build'
             }
@@ -68,4 +69,3 @@ pipeline {
         }
     }
 }
-
