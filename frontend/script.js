@@ -1,4 +1,3 @@
-cat > script.js <<'EOF'
 const API_URL = "/api/tasks";
 
 const form = document.getElementById("task-form");
