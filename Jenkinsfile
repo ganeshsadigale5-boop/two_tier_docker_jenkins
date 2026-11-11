@@ -25,19 +25,19 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                sh 'docker compose build'
+                 sh 'docker compose -p two-tier-app build'
             }
         }
 
         stage('Deploy Application') {
             steps {
-                sh 'docker compose up -d'
+                sh 'docker compose -p two-tier-app up -d'
             }
         }
 
         stage('Verify Containers') {
             steps {
-                sh 'docker compose ps'
+                sh 'docker compose -p two-tier-app ps'
             }
         }
 
